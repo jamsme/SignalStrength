@@ -1,0 +1,10 @@
+div.card-panel.teal.lighten-1 {
+    width: 570px;
+    height: 300px;
+    margin: 50px auto;
+    border-radius: 8px;
+}
+button.waves-effect.waves-light.btn-small, button.waves-effect.waves-dark.btn-small {
+    width: 100px;
+    margin: 70px 5px 0 5px;
+}

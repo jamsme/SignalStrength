@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#go").click(window.boom = function(){
+    $("button.waves-effect.waves-dark.btn-small").click(function() {
         console.log("button is clicked")
         var i
         var limit = 5
@@ -8,11 +8,11 @@ $(document).ready(function () {
             $.ajax({
                 url: '/rssi',
                 success: function(resp){
-                    console.log(resp[1] + resp[2]);
                     $("#hold").html(JSON.stringify(resp[1] + resp[2]))
+                    console.log(resp[1] + resp[2]);
                 }
             })
         };
     });
-    
+
 });
