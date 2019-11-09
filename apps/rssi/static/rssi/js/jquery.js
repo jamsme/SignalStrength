@@ -2,12 +2,16 @@ $(document).ready(function () {
 
     $("button.waves-effect.waves-dark.btn-small").click(function() {
         console.log("button is clicked")
-        var limit = 5
+        
+        var requests = [];
+        var limit = 100
+
         for (var i = 0; i < limit; i++) {
-            $.ajax({
+            var req = $.ajax({
                 url: '/rssi',
                 success: function(resp) {
-                    $("#dBm").html(JSON.stringify( resp + " dBm"))
+                    $("#dBm").html(resp + " dBm");
+
                     if (resp <= -0 && resp >= -49) {
                         console.log("best", resp)
                         $(".card-panel").css('background-color', '#7eca26')
@@ -23,7 +27,7 @@ $(document).ready(function () {
                         $(".card-panel").css('background-color', '#f2ee1c')
                         $("#text").html("Good, Reliable Signal");
                     }
-                    else if (resp <= -69 && resp >= -67) {
+                    else if (resp <= -67 && resp >= -69) {
                         console.log(resp, "greater than 67 less than 69")
                         $(".card-panel").css('background-color', '#fcdd0f')
                         $("#text").html("Good, Reliable Signal");
@@ -38,9 +42,21 @@ $(document).ready(function () {
                         $(".card-panel").css('background-color', '#ef4522')
                         $("#text").html("Horrible Connection");
                     }
+                },
+                error: function() {
+                    console.log("Vetoed");
                 }
-            })
+            });
+
+            requests.push(req);
+
         };
+
+        $("button.waves-effect.waves-light.btn-small").click(function() {
+            console.log("stop button clicked")
+            requests.forEach(request => request.abort());
+        });
+
     });
 
 });
