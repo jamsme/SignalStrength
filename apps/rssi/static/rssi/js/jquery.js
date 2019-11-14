@@ -11,6 +11,7 @@ $(document).ready(function () {
                 url: '/rssi',
                 success: function(resp) {
                     $("#dBm").html(resp + " dBm");
+                    $(".card-panel").effect("bounce", {times: 3}, 1000);
 
                     if (resp <= -0 && resp >= -49) {
                         console.log("best", resp)
