@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $("button.waves-effect.waves-dark.btn-small").click(function() {
-        console.log("button is clicked")
+        console.log("rssi is clicked")
         
         var requests = [];
 
@@ -10,26 +10,26 @@ $(document).ready(function () {
                 url: '/rssi',
                 success: function(resp) {
                     $("#dBm").html(resp + " dBm");
-
+                    
                     if (resp <= -0 && resp >= -49) {
                         console.log("best", resp)
-                        $(".card-panel").css('background-color', '#7eca26');
                         $("#text").html("Perfect Signal");
+                        $(".card-panel").css('background-color', '#00c853');
                     }
                     else if (resp <= -50 && resp >= -59) {
                         console.log(resp, "greater than 50 less than 59")
-                        $(".card-panel").css('background-color', '#cce110');
+                        $(".card-panel").css('background-color', '#43a047');
                         $("#text").html("Excellent Signal");
                     }
                     else if (resp <= -60 && resp >= -66) {
                         console.log(resp, "greater than 60 less than 66")
-                        $(".card-panel").css('background-color', '#f2ee1c');
+                        $(".card-panel").css('background-color', '#66bb6a');
                         $("#text").html("Good, Reliable Signal");
                     }
                     else if (resp <= -67 && resp >= -69) {
                         console.log(resp, "greater than 67 less than 69")
                         $(".card-panel").css('background-color', '#fcdd0f');
-                        $("#text").html("Good, Reliable Signal");
+                        $("#text").html("Minimum for voice & non HD browsing");
                     }
                     else if (resp <= -70 && resp >= -79) {
                         console.log(resp, "greater than 70 less than 79")
