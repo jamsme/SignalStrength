@@ -11,5 +11,6 @@ def getRSSI(request):
     process.wait()
     space = out.decode("utf-8").split()
     # print(" CtlRSSI = ",space[1])
-    
+    time.sleep(4)
+        
     return HttpResponse(space[1])
