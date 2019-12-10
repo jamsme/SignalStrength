@@ -7,9 +7,6 @@ h4 {
     position: relative;
     top: 15px;
 }
-h3 {
-    font-size: 9px;
-}
 div.card-panel {
     width: 500px;
     height: 250px;
@@ -32,4 +29,9 @@ button.waves-effect.waves-light.btn-small, button.waves-effect.waves-dark.btn-sm
     font-weight: bold;
     position: relative;
     top: 15px;
+}
+h3 {
+    font-size: 13px;
+    color: white;
+    margin: 25px 115px 0 0;
 }
