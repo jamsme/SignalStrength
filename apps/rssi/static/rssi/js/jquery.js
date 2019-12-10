@@ -56,6 +56,7 @@ $(document).ready(function () {
     
     $("button.waves-effect.waves-light.btn-small").click(function() {
         console.log("stop button clicked");
+        window.location.reload();
     });
 
 });
